@@ -1,0 +1,31 @@
+.note-pp {
+  border: $border-base;
+  border-color: $color-red;
+  padding: $spacing-md $spacing-lg;
+  width: auto;
+  margin-left: 0;
+
+  @media screen and (min-width: $screen-md) {
+    width: auto;
+    min-width: grid-column-width(10);
+    margin-left: 0;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    width: auto;
+    min-width: grid-column-width(8);
+    margin-left: 0;
+  }
+}
+
+.note-pp__title {
+  font-size: $font-size-md;
+  hyphens: auto;
+  margin: 0;
+}
+
+.note-pp__text {
+  font-size: $font-size-sm;
+  display: block;
+  margin: 0;
+}
