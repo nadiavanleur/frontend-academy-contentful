@@ -69,7 +69,7 @@ class OverviewTemplate extends React.Component {
 
     const pageHeader = (
       <h2 className="page__title">
-        {`${title} ${titleTag ? `- ${titleTag}` : ''}`}.
+        {`${title}${titleTag ? ` - ${titleTag}` : ''}.`}
       </h2>
     )
 

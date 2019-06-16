@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulTutorial(sort: { order: ASC, fields: createdAt }) {
               edges {
                 node {
+                  id
                   title
                   introduction {
                     childMarkdownRemark {

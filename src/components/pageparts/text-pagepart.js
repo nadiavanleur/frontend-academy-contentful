@@ -6,9 +6,9 @@ class TextPagepart extends Component {
 
     return (
       <div className={`text-pp pagepart`}>
-        {title !== 'undefined' && title !== '' && (
+        {/* {title !== 'undefined' && title !== '' && (
           <h3 className={`text-pp__title pagepart__title`}>{title}</h3>
-        )}
+        )} */}
 
         <div className={`text-pp__container pagepart__container`}>
           {text !== 'undefined' && text !== '' && (

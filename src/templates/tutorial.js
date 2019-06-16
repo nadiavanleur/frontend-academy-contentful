@@ -140,7 +140,13 @@ class TutorialTemplate extends React.Component {
         <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
 
         <section className="tutorial__intro wrapper-inner">
-          <h2 className="page__title tutorial__title">{title}.</h2>
+          <h2 className="page__title tutorial__title">{`${title}${
+            title.substr(title.length - 1) === '?' ||
+            title.substr(title.length - 1) === '!' ||
+            title.substr(title.length - 1) === '.'
+              ? ''
+              : '.'
+          }`}</h2>
           <Progress
             elementClass="tutorial__progress"
             progress={this.state.progress}
@@ -275,6 +281,12 @@ export const pageQuery = graphql`
               html
             }
           }
+        }
+        ... on ContentfulTutorialVideoEmbed {
+          id
+          title
+          embedCode
+          platform
         }
       }
       next {

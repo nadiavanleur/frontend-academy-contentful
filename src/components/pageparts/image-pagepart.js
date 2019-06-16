@@ -8,9 +8,9 @@ class ImagePagepart extends Component {
 
     return (
       <div className={`image-pp pagepart`}>
-        {title !== 'undefined' && title !== '' && title && (
+        {/* {title !== 'undefined' && title !== '' && title && (
           <h3 className={`image-pp__title pagepart__title`}>{title}</h3>
-        )}
+        )} */}
 
         <div className={`image-pp__container pagepart__container`}>
           <div className="image-pp__main-element">

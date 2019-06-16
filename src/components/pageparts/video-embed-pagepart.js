@@ -5,12 +5,12 @@ import VideoPagepart from './video-pagepart'
 
 class VideoEmbedPagepart extends Component {
   render() {
-    const { title, embedcode, platform } = this.props
+    const { title, embedCode, platform } = this.props
+
     const platforms = {
-      youtube: `https://www.youtube.com/embed/${embedcode}`,
-      vimeo: `https://player.vimeo.com/video/${embedcode}`,
-      other: `${embedcode}`,
-      file: `ignore`,
+      youtube: `https://www.youtube.com/embed/${embedCode}`,
+      vimeo: `https://player.vimeo.com/video/${embedCode}`,
+      other: `${embedCode}`,
     }
 
     return (
@@ -33,7 +33,7 @@ class VideoEmbedPagepart extends Component {
 
 VideoEmbedPagepart.propTypes = {
   title: PropTypes.string,
-  embedcode: PropTypes.string,
+  embedCode: PropTypes.string,
   platform: PropTypes.string,
   caption: PropTypes.string,
 }

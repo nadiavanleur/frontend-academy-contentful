@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Header from './header'
 import Footer from './footer'
-// import CookieNotification from './cookie-notification'
+import CookieNotification from './cookie-notification'
 
 import { CookiesProvider } from 'react-cookie'
 
@@ -21,7 +21,7 @@ class Layout extends Component {
 
           <Footer />
 
-          {/* <CookieNotification /> */}
+          <CookieNotification />
         </div>
       </CookiesProvider>
     )

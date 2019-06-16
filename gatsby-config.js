@@ -35,6 +35,16 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `e-sites-academy`,
+        short_name: `academy`,
+        start_url: `/`,
+        display: `minimal-ui`,
+        icon: `src/img/favicon.svg`, // This path is relative to the root of the site.
+      },
+    },
     `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-contentful',

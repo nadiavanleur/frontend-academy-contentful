@@ -7,11 +7,11 @@ class CodeExamplePagepart extends Component {
 
     return (
       <div className={`codepen-pp pagepart`}>
-        {title !== 'undefined' && title !== '' && title && (
+        {/* {title !== 'undefined' && title !== '' && title && (
           <h3 className={`codepen-pp__title pagepart__title`}>
             <u className="pagepart__title-underline">{title}</u>
           </h3>
-        )}
+        )} */}
 
         <div className={`codepen-pp__container pagepart__container`}>
           {embedcode !== 'undefined' && embedcode !== '' && embedcode && (

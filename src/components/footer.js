@@ -1,9 +1,13 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
+import { Link, graphql, StaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Navigation from "../components/navigation.js"
+import Navigation from '../components/navigation.js'
 
 class Footer extends Component {
   render() {
+    const { logo } = this.props.data
+
     return (
       <footer className="footer page__footer">
         <div className="wrapper-inner footer__container">
@@ -12,11 +16,23 @@ class Footer extends Component {
             © {new Date().getFullYear()}, Mogelijk gemaakt door
             {` `}
             <a href="https://www.e-sites.nl" className="footer__credits-link">
-              <img
-                className="footer__credits-logo"
-                src="/img/esites-logo-color.svg"
-                alt="E-sites"
-              />
+              {logo && logo.fluid && logo.fluid.src !== null && (
+                <Img
+                  alt={title ? title : 'E-sites'}
+                  className="footer__credits-logo"
+                  fluid={logo.fluid}
+                />
+              )}
+              {logo &&
+                logo.fluid &&
+                logo.fluid.src === null &&
+                logo.file !== null && (
+                  <img
+                    src={logo.file.url}
+                    alt={logo.title ? logo.title : 'E-sites'}
+                    className="footer__credits-logo"
+                  />
+                )}
             </a>
           </p>
         </div>
@@ -25,4 +41,26 @@ class Footer extends Component {
   }
 }
 
-export default Footer
+export default props => (
+  <StaticQuery
+    query={footerQuery}
+    render={data => <Footer data={data} {...props} />}
+  />
+)
+
+export const footerQuery = graphql`
+  query FooterQuery {
+    logo: contentfulAsset(title: { eq: "e-sites logo" }) {
+      id
+      file {
+        contentType
+        fileName
+        url
+      }
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
+  }
+`

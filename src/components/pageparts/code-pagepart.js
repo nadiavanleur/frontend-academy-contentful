@@ -8,9 +8,9 @@ class CodePagepart extends Component {
 
     return (
       <div className={`code-pp pagepart`}>
-        {title !== 'undefined' && title !== '' && title && (
+        {/* {title !== 'undefined' && title !== '' && title && (
           <h3 className={`code-pp__title pagepart__title`}>{title}</h3>
-        )}
+        )} */}
 
         <div className={`code-pp__container pagepart__container`}>
           <div className="code-pp__main-element pagepart__main-element">

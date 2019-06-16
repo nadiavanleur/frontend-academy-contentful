@@ -29,6 +29,11 @@ class PostItem extends Component {
                 className="post-item__link"
               >
                 {title}
+                {title.substr(title.length - 1) === '?' ||
+                title.substr(title.length - 1) === '!' ||
+                title.substr(title.length - 1) === '.'
+                  ? ''
+                  : '.'}
               </Link>
             </h3>
 

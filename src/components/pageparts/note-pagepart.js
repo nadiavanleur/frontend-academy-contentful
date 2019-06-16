@@ -7,9 +7,9 @@ class NotePagepart extends Component {
 
     return (
       <div className={`note-pp pagepart`}>
-        {title !== 'undefined' && title !== '' && title && (
+        {/* {title !== 'undefined' && title !== '' && title && (
           <h3 className={`note-pp__title pagepart__title`}>{title}</h3>
-        )}
+        )} */}
 
         <div className={`note-pp__container pagepart__container`}>
           {text !== 'undefined' && text !== '' && text && (

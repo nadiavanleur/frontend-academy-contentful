@@ -16,7 +16,16 @@ class ContentTemplate extends Component {
   render() {
     const { title, slug, siteUrl, content } = this.props
 
-    const pageHeader = <h2 className="page__title">{title}.</h2>
+    const pageHeader = (
+      <h2 className="page__title">
+        {title}
+        {title.substr(title.length - 1) === '?' ||
+        title.substr(title.length - 1) === '!' ||
+        title.substr(title.length - 1) === '.'
+          ? ''
+          : '.'}
+      </h2>
+    )
 
     return (
       <Layout pageHeader={pageHeader} page="about">
