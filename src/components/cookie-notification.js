@@ -10,7 +10,7 @@ class CookieNotification extends Component {
 
   constructor(props) {
     super(props)
-    this.setCookie(`cookies-accepted`, 'false')
+    // this.setCookie(`cookies-accepted`, 'false')
     this.state = {
       cookiesAccepted: this.getCookie(`cookies-accepted`),
     }
