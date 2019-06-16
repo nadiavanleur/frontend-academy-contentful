@@ -151,9 +151,12 @@ class TutorialTemplate extends React.Component {
             elementClass="tutorial__progress"
             progress={this.state.progress}
           />
-          <p className="tutorial__description">
-            {introduction.childMarkdownRemark.excerpt}
-          </p>
+          <p
+            className="tutorial__description"
+            dangerouslySetInnerHTML={{
+              __html: introduction.childMarkdownRemark.html,
+            }}
+          />
           {(learn || know) && (
             <div className="tutorial__list-wrapper">
               <div className="tutorial__list-wrapper-content">
@@ -238,6 +241,7 @@ export const pageQuery = graphql`
       introduction {
         childMarkdownRemark {
           excerpt(format: PLAIN)
+          html
         }
       }
       slug
