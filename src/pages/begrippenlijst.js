@@ -71,33 +71,26 @@ class Glossary extends Component {
                     {firstLetter}.
                   </a>
                 </h3>
-                <ul className="glossary__list">
+                <dl className="glossary__list">
                   {definitions.map(({ label, description }) => {
                     return (
-                      <li
+                      <div
                         className="glossary__item"
                         id={label.toLowerCase()}
                         key={label}
                         activeClassName="active"
                       >
-                        <h3 className="glossary__title">
-                          <a
-                            href={`/begrippenlijst#${label.toLowerCase()}`}
-                            className="glossary__link"
-                          >
-                            {label}
-                          </a>
-                        </h3>
-                        <p
+                        <dt className="glossary__title">{label}</dt>
+                        <dd
                           className="glossary__description"
                           dangerouslySetInnerHTML={{
                             __html: description.childMarkdownRemark.html,
                           }}
                         />
-                      </li>
+                      </div>
                     )
                   })}
-                </ul>
+                </dl>
               </div>
             )
           })}

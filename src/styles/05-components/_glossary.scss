@@ -61,15 +61,10 @@
   }
 }
 
-.glossary__description {
-  margin-bottom: 0;
+.glossary__title {
+  font-weight: $font-weight-bold;
 }
 
-.glossary__link {
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
+.glossary__description {
+  margin: 0;
 }
