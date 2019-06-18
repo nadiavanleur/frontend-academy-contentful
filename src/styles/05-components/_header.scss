@@ -76,8 +76,12 @@
 }
 
 .header__bottom {
-  @include grid-container;
-
   padding-left: $spacing-md;
   padding-right: $spacing-md;
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-lg;
+
+  &::after {
+    display: none;
+  }
 }

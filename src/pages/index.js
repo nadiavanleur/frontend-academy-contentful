@@ -6,6 +6,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Filter from '../components/filter'
 
 class RootIndex extends React.Component {
   render() {

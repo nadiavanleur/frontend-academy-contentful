@@ -1,0 +1,12 @@
+.filter {
+}
+
+.filter__item {
+  display: inline-block;
+}
+
+.filter__link {
+  // padding-right: 0;
+  padding-left: 0;
+  padding-right: $spacing-lg;
+}

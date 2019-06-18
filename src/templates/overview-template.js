@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostItem from '../components/post-item'
 import Pagination from '../components/pagination'
+import Filter from '../components/filter'
 
 class OverviewTemplate extends React.Component {
   static propTypes = {
@@ -68,9 +69,12 @@ class OverviewTemplate extends React.Component {
     const { siteUrl } = data.site.siteMetadata
 
     const pageHeader = (
-      <h2 className="page__title">
-        {`${title}${titleTag ? ` - ${titleTag}` : ''}.`}
-      </h2>
+      <React.Fragment>
+        <h2 className="page__title">
+          {`${title}${titleTag ? ` - ${titleTag}` : ''}.`}
+        </h2>
+        <Filter />
+      </React.Fragment>
     )
 
     return (
