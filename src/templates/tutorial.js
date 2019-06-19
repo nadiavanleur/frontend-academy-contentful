@@ -42,13 +42,8 @@ class TutorialTemplate extends React.Component {
     this.setCookie(`tutorial-page`, tutorialPage)
 
     this.scrollToLastHeading()
-    // this.scrollDown(this.getCookie(`tutorial_progress-${this.state.id}`))
 
     this.addProgressTracker()
-  }
-
-  componentDidUpdate() {
-    // this.scrollToLastHeading()
   }
 
   componentWillUnmount() {
