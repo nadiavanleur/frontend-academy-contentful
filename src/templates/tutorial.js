@@ -25,12 +25,13 @@ class TutorialTemplate extends React.Component {
       tutorialNumber: props.pageContext.tutorialNumber,
       postsPerPage: props.pageContext.postsPerPage,
     }
-    console.log(props.data.tutorial.id, this.state.id)
   }
 
   componentDidMount() {
     this.setState({
       progress: this.getCookie(`tutorial_progress-${this.state.id}`),
+      lastHeading: this.getCookie(`last_heading-${this.state.id}`),
+      headings: document.querySelectorAll('[data-heading]'),
     })
 
     this.setCookie(`last-visited-tutorial`, this.state.id)
@@ -40,20 +41,26 @@ class TutorialTemplate extends React.Component {
     )
     this.setCookie(`tutorial-page`, tutorialPage)
 
-    this.scrollDown(this.getCookie(`tutorial_progress-${this.state.id}`))
+    this.scrollToLastHeading()
+    // this.scrollDown(this.getCookie(`tutorial_progress-${this.state.id}`))
 
     this.addProgressTracker()
   }
 
+  componentDidUpdate() {
+    // this.scrollToLastHeading()
+  }
+
   componentWillUnmount() {
     this.setCookie(`tutorial_progress-${this.state.id}`, this.state.progress)
-
+    this.setCookie(`last_heading-${this.state.id}`, this.state.lastHeading)
     this.removeProgressTracker()
   }
 
   addProgressTracker() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.setProgress)
+      window.addEventListener('scroll', this.setLastHeading)
     }
   }
 
@@ -69,6 +76,35 @@ class TutorialTemplate extends React.Component {
     if (value > this.state.progress) {
       this.setState({ progress: value })
     }
+  }
+
+  setLastHeading = () => {
+    const windowHeight = window.innerHeight
+    const middleWindow = windowHeight / 2
+
+    let prevLastHeadingElement
+    let lastHeading = this.state.lastHeading
+
+    this.state.headings.forEach(heading => {
+      if (heading.dataset.heading === this.state.lastHeading) {
+        prevLastHeadingElement = heading
+      }
+    })
+
+    this.state.headings.forEach(heading => {
+      if (
+        heading.getBoundingClientRect().y < middleWindow &&
+        (!this.state.lastHeading ||
+          this.state.lastHeading === 'undefined' ||
+          heading.offsetTop > prevLastHeadingElement.offsetTop)
+      ) {
+        lastHeading = heading.dataset.heading
+      }
+    })
+
+    this.setState({
+      lastHeading: lastHeading,
+    })
   }
 
   getCurrentProgress() {
@@ -117,13 +153,28 @@ class TutorialTemplate extends React.Component {
     }, 50)
   }
 
+  scrollToLastHeading() {
+    const lastHeadingElement = document.querySelectorAll(
+      `[data-heading='${this.getCookie(`last_heading-${this.state.id}`)}']`
+    )[0]
+
+    if (lastHeadingElement) {
+      setTimeout(function() {
+        window.scrollTo({
+          top: lastHeadingElement.offsetTop - 20,
+          left: 0,
+          behavior: 'smooth',
+        })
+      }, 50)
+    }
+  }
+
   render() {
     const { data } = this.props
     const { siteUrl } = data.site.siteMetadata
     const {
       slug,
       title,
-      image,
       introduction,
       know,
       learn,

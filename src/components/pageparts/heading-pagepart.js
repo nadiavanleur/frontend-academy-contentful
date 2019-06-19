@@ -5,8 +5,10 @@ class HeadingPagepart extends Component {
     const { heading, underline } = this.props
 
     return (
-      // <div className='pagepart'>
-      <h3 className={`pagepart__title`}>
+      <h3
+        className={`pagepart__title`}
+        data-heading={heading.replace(/\s/g, '_').toLowerCase()}
+      >
         {(underline === true || underline === 'true') && (
           <u className="pagepart__title-underline">{heading}</u>
         )}
@@ -14,7 +16,6 @@ class HeadingPagepart extends Component {
           <React.Fragment>{heading}</React.Fragment>
         )}
       </h3>
-      // </div>
     )
   }
 }
