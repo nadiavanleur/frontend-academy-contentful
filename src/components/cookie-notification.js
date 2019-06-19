@@ -13,6 +13,11 @@ class CookieNotification extends Component {
     this.state = {
       cookiesAccepted: this.getCookie(`cookies-accepted`),
     }
+    setTimeout(() => {
+      this.state = {
+        cookiesAccepted: this.getCookie(`cookies-accepted`),
+      }
+    }, 50)
   }
 
   onButtonAccept = () => {
