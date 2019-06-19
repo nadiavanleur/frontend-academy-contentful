@@ -14,7 +14,7 @@
 }
 
 .hero__image {
-  @include grid-column(12);
+  width: 100%;
   float: none;
   margin: 0 auto;
 
@@ -28,6 +28,7 @@
 
 .hero__buttons {
   @include grid-container;
+  @include grid-collapse;
   padding-top: $spacing-xl;
   padding-bottom: $spacing-xl;
 }
