@@ -15,7 +15,7 @@ class CodeExamplePagepart extends Component {
         <div className={`codepen-pp__container pagepart__container`}>
           {embedCode && (
             <iframe
-              src={`http://jsfiddle.net/${userId}/${embedCode}/embedded/${outputString}/`}
+              src={`//jsfiddle.net/${userId}/${embedCode}/embedded/${outputString}/`}
               title={title ? title : embedCode}
               className="codepen-pp__iframe"
             />
