@@ -8,7 +8,9 @@ class NotePagepart extends Component {
     return (
       <div className={`note-pp pagepart`}>
         <div className={`note-pp__container pagepart__container`}>
-          {text && <p className={`note-pp__text pagepart__text`}>{text}</p>}
+          {text && (
+            <p className={`note-pp__text pagepart__text`}>{text.text}</p>
+          )}
         </div>
       </div>
     )
@@ -16,7 +18,6 @@ class NotePagepart extends Component {
 }
 
 NotePagepart.propTypes = {
-  title: PropTypes.string,
   text: PropTypes.string,
 }
 

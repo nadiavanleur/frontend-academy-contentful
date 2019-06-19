@@ -42,7 +42,6 @@ class TutorialTemplate extends React.Component {
     this.setCookie(`tutorial-page`, tutorialPage)
 
     this.scrollToLastHeading()
-
     this.addProgressTracker()
   }
 
@@ -62,6 +61,7 @@ class TutorialTemplate extends React.Component {
   removeProgressTracker() {
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.setProgress)
+      window.removeEventListener('scroll', this.setLastHeading)
     }
   }
 
@@ -91,7 +91,8 @@ class TutorialTemplate extends React.Component {
         heading.getBoundingClientRect().y < middleWindow &&
         (!this.state.lastHeading ||
           this.state.lastHeading === 'undefined' ||
-          heading.offsetTop > prevLastHeadingElement.offsetTop)
+          (prevLastHeadingElement &&
+            heading.offsetTop > prevLastHeadingElement.offsetTop))
       ) {
         lastHeading = heading.dataset.heading
       }
@@ -294,7 +295,9 @@ export const pageQuery = graphql`
       content {
         ... on ContentfulTutorialAfbeelding {
           id
-          caption
+          caption {
+            caption
+          }
           title
           image {
             sizes {
@@ -315,20 +318,54 @@ export const pageQuery = graphql`
           code {
             code
           }
-          title
-          language
-        }
-        ... on ContentfulTutorialKopteksts {
-          id
-          heading
-          title
-        }
-        ... on ContentfulTutorialTekst {
-          id
-          title
           text {
             childMarkdownRemark {
               html
+            }
+          }
+          caption {
+            caption
+          }
+          title
+          language
+        }
+        ... on ContentfulTutorialCodeVoorbeeld {
+          id
+          userId
+          title
+          embedCode
+          output
+          caption {
+            caption
+          }
+        }
+        ... on ContentfulTutorialKopteksts {
+          id
+          underline
+          heading
+        }
+        ... on ContentfulTutorialNotitie {
+          id
+          text {
+            text
+          }
+        }
+        ... on ContentfulTutorialTekst {
+          id
+          text {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+        ... on ContentfulTutorialVideo {
+          id
+          caption {
+            caption
+          }
+          video {
+            file {
+              url
             }
           }
         }
@@ -337,6 +374,9 @@ export const pageQuery = graphql`
           title
           embedCode
           platform
+          caption {
+            caption
+          }
         }
       }
       next {

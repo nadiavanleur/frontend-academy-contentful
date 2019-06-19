@@ -21,9 +21,9 @@ class Pageparts extends Component {
       ContentfulTutorialKopteksts: HeadingPagepart,
       ContentfulTutorialTekst: TextPagepart,
       ContentfulTutorialVideoEmbed: VideoEmbedPagepart,
-      ContentfulTutorialVideoFile: VideoFilePagepart,
-      ContentfulTutorialNote: NotePagepart,
-      ContentfulTutorialCodeExample: CodeExamplePagepart,
+      ContentfulTutorialVideo: VideoFilePagepart,
+      ContentfulTutorialNotitie: NotePagepart,
+      ContentfulTutorialCodeVoorbeeld: CodeExamplePagepart,
     }
 
     return (

@@ -20,7 +20,7 @@ class ImagePagepart extends Component {
 
             {caption && (
               <caption className={`image-pp__caption pagepart__caption`}>
-                {caption}
+                {caption.caption}
               </caption>
             )}
           </div>

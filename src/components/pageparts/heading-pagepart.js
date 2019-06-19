@@ -9,12 +9,10 @@ class HeadingPagepart extends Component {
         className={`pagepart__title`}
         data-heading={heading.replace(/\s/g, '_').toLowerCase()}
       >
-        {(underline === true || underline === 'true') && (
+        {underline === true && (
           <u className="pagepart__title-underline">{heading}</u>
         )}
-        {(underline !== true || underline !== 'true') && (
-          <React.Fragment>{heading}</React.Fragment>
-        )}
+        {underline !== true && <React.Fragment>{heading}</React.Fragment>}
       </h3>
     )
   }

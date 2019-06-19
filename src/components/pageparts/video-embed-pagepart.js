@@ -24,7 +24,6 @@ class VideoEmbedPagepart extends Component {
           title={title ? title : 'video'}
           className="video-pp__iframe"
         >
-          "Your browser does not support HTML5 video."
         </iframe>
       </VideoPagepart>
     )

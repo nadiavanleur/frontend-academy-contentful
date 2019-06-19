@@ -19,6 +19,7 @@ export const pageQuery = graphql`
       sort: { order: DESC, fields: createdAt }
       skip: $skip
       limit: $limit
+      filter: { id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" } }
     ) {
       edges {
         node {

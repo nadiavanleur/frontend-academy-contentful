@@ -23,11 +23,18 @@ class CodePagepart extends Component {
             )}
             {caption && (
               <caption className={`code-pp__caption pagepart__caption`}>
-                {caption}
+                {caption.caption}
               </caption>
             )}
           </div>
-          {text && <p className={`code-pp__text pagepart__text`}>{text}</p>}
+          {text && (
+            <p
+              className={`code-pp__text pagepart__text`}
+              dangerouslySetInnerHTML={{
+                __html: text.childMarkdownRemark.html,
+              }}
+            />
+          )}
         </div>
       </div>
     )

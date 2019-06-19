@@ -21,7 +21,10 @@ export const pageQuery = graphql`
   ) {
     tutorials: allContentfulTutorial(
       sort: { order: DESC, fields: createdAt }
-      filter: { tags: { in: [$programmingLanguage] } }
+      filter: {
+        tags: { in: [$programmingLanguage] }
+        id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" }
+      }
       skip: $skip
       limit: $limit
     ) {

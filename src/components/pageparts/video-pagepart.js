@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class VideoPagepart extends Component {
   render() {
-    const { title, caption, children } = this.props
+    const { caption, children } = this.props
 
     return (
       <div className={`video-pp pagepart`}>
@@ -17,7 +17,7 @@ class VideoPagepart extends Component {
 
             {caption && (
               <caption className={`video-pp__caption pagepart__caption`}>
-                {caption}
+                {caption.caption}
               </caption>
             )}
           </div>
