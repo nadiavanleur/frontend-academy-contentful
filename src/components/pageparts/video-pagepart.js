@@ -7,19 +7,15 @@ class VideoPagepart extends Component {
 
     return (
       <div className={`video-pp pagepart`}>
-        {/* {title !== 'undefined' && title !== '' && title && (
-          <h3 className={`video-pp__title pagepart__title`}>{title}</h3>
-        )} */}
-
         <div className={`video-pp__container pagepart__container`}>
           <div className="video-pp__main-element">
-            {children !== 'undefined' && children !== '' && children && (
+            {children && (
               <div className="video-pp__video-wrapper">
                 <div className="video-pp__iframe-wrapper">{children}</div>
               </div>
             )}
 
-            {caption !== 'undefined' && caption !== '' && caption && (
+            {caption && (
               <caption className={`video-pp__caption pagepart__caption`}>
                 {caption}
               </caption>

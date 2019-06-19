@@ -7,14 +7,8 @@ class CodeExamplePagepart extends Component {
 
     return (
       <div className={`codepen-pp pagepart`}>
-        {/* {title !== 'undefined' && title !== '' && title && (
-          <h3 className={`codepen-pp__title pagepart__title`}>
-            <u className="pagepart__title-underline">{title}</u>
-          </h3>
-        )} */}
-
         <div className={`codepen-pp__container pagepart__container`}>
-          {embedcode !== 'undefined' && embedcode !== '' && embedcode && (
+          {embedcode && (
             <iframe
               src={`//jsfiddle.net/${userid}/${embedcode}/embedded/${output}/`}
               title={title ? title : embedcode}
@@ -22,7 +16,7 @@ class CodeExamplePagepart extends Component {
             />
           )}
 
-          {caption !== 'undefined' && caption !== '' && caption && (
+          {caption && (
             <caption className={`codepen-pp__caption pagepart__caption`}>
               {caption}
             </caption>

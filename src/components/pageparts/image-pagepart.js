@@ -4,17 +4,13 @@ import PropTypes from 'prop-types'
 
 class ImagePagepart extends Component {
   render() {
-    const { title, image, caption } = this.props
+    const { image, caption } = this.props
 
     return (
       <div className={`image-pp pagepart`}>
-        {/* {title !== 'undefined' && title !== '' && title && (
-          <h3 className={`image-pp__title pagepart__title`}>{title}</h3>
-        )} */}
-
         <div className={`image-pp__container pagepart__container`}>
           <div className="image-pp__main-element">
-            {image !== 'undefined' && image !== '' && image && (
+            {image && (
               <Img
                 sizes={image.sizes}
                 alt={image.title ? image.title : 'image'}
@@ -22,7 +18,7 @@ class ImagePagepart extends Component {
               />
             )}
 
-            {caption !== 'undefined' && caption !== '' && caption && (
+            {caption && (
               <caption className={`image-pp__caption pagepart__caption`}>
                 {caption}
               </caption>
