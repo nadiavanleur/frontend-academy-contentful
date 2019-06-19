@@ -10,7 +10,10 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulTutorial(sort: { order: ASC, fields: createdAt }) {
+            allContentfulTutorial(
+              sort: { order: ASC, fields: createdAt }
+              filter: { id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" } }
+            ) {
               edges {
                 node {
                   id
