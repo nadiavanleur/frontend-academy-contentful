@@ -42,6 +42,7 @@ class TutorialTemplate extends React.Component {
     this.setCookie(`tutorial-page`, tutorialPage)
 
     this.scrollToLastHeading()
+
     this.addProgressTracker()
   }
 
@@ -91,6 +92,8 @@ class TutorialTemplate extends React.Component {
         heading.getBoundingClientRect().y < middleWindow &&
         (!this.state.lastHeading ||
           this.state.lastHeading === 'undefined' ||
+          this.state.lastHeading === 0 ||
+          this.state.lastHeading === '0' ||
           (prevLastHeadingElement &&
             heading.offsetTop > prevLastHeadingElement.offsetTop))
       ) {
