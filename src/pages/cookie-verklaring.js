@@ -26,7 +26,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    page: contentfulCookieVerklaring {
+    page: contentfulCookieverklaring {
       title
       content {
         content
