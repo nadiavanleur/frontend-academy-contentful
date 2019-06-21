@@ -5,24 +5,18 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const tutorial = path.resolve('./src/templates/tutorial.js')
     resolve(
       graphql(
         `
           {
             allContentfulTutorial(
-              sort: { order: ASC, fields: createdAt }
+              sort: { order: DESC, fields: updatedAt }
               filter: { id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" } }
             ) {
               edges {
                 node {
                   id
                   title
-                  introduction {
-                    childMarkdownRemark {
-                      excerpt(format: PLAIN)
-                    }
-                  }
                   slug
                   tags
                 }
@@ -47,8 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Tutorial pages
         allTutorials.forEach(({ node }) => {
-          const slug = node.slug
-          const languages = node.tags
+          const { slug, tags: languages } = node
           const template = `src/templates/tutorial.js`
 
           const langString = languages.toString().toLowerCase()
@@ -146,17 +139,6 @@ exports.createPages = ({ graphql, actions }) => {
             })
           })
         }
-
-        // const tutorials = result.data.allContentfulTutorial.edges
-        // tutorials.forEach((tutorial, index) => {
-        //   createPage({
-        //     path: `/tutorials/${tutorial.node.slug}/`,
-        //     component: tutorial,
-        //     context: {
-        //       slug: tutorial.node.slug,
-        //     },
-        //   })
-        // })
       })
     )
   })

@@ -20,10 +20,11 @@ export const pageQuery = graphql`
     $programmingLanguage: String!
   ) {
     tutorials: allContentfulTutorial(
-      sort: { order: DESC, fields: createdAt }
+      sort: { order: DESC, fields: updatedAt }
       filter: {
         tags: { in: [$programmingLanguage] }
         id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" }
+        node_locale: { eq: "nl-NL" }
       }
       skip: $skip
       limit: $limit

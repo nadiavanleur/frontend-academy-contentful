@@ -16,10 +16,13 @@ export default Overview
 export const pageQuery = graphql`
   query tutorialOverviewQueryAll($skip: Int!, $limit: Int!) {
     tutorials: allContentfulTutorial(
-      sort: { order: DESC, fields: createdAt }
+      sort: { order: DESC, fields: updatedAt }
       skip: $skip
       limit: $limit
-      filter: { id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" } }
+      filter: {
+        id: { ne: "047d56ba-1457-50e5-9345-00d7b4cfb065" }
+        node_locale: { eq: "nl-NL" }
+      }
     ) {
       edges {
         node {
