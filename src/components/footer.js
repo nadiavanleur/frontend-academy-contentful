@@ -4,8 +4,19 @@ import Img from 'gatsby-image'
 
 import Navigation from '../components/navigation.js'
 
+/**
+ * Footer
+ */
 class Footer extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var logo: object, e-sites logo
+     */
     const { logo } = this.props.data
 
     return (
@@ -18,7 +29,7 @@ class Footer extends Component {
             <a href="https://www.e-sites.nl" className="footer__credits-link">
               {logo && logo.fluid && logo.fluid.src !== null && (
                 <Img
-                  alt={title ? title : 'E-sites'}
+                  alt={logo.title ? logo.title : 'E-sites'}
                   className="footer__credits-logo"
                   fluid={logo.fluid}
                 />
@@ -41,6 +52,9 @@ class Footer extends Component {
   }
 }
 
+/**
+ * Uses static query to get data for footer
+ */
 export default props => (
   <StaticQuery
     query={footerQuery}
@@ -48,6 +62,9 @@ export default props => (
   />
 )
 
+/**
+ * Graphql query to get footer data
+ */
 export const footerQuery = graphql`
   query FooterQuery {
     logo: contentfulAsset(title: { eq: "e-sites logo" }) {

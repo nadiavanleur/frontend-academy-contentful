@@ -8,8 +8,21 @@ import { CookiesProvider } from 'react-cookie'
 
 import '../styles/style.scss'
 
+/**
+ * Layout
+ */
 class Layout extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var children
+     * @var pageHeader
+     * @var page
+     */
     const { children, pageHeader, page } = this.props
 
     return (

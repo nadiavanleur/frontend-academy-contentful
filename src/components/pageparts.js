@@ -11,10 +11,21 @@ import VideoFilePagepart from './pageparts/video-file-pagepart'
 import NotePagepart from './pageparts/note-pagepart'
 import CodeExamplePagepart from './pageparts/code-example-pagepart'
 
+/**
+ * Pageparts componenten
+ */
 class Pageparts extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var content: object, get content from props
+     * @var Components: object, all available pageparts (capital letter so react recognises it when used as component)
+     */
     const { content } = this.props
-
     const Components = {
       ContentfulTutorialAfbeelding: ImagePagepart,
       ContentfulTutorialCode: CodePagepart,

@@ -4,8 +4,74 @@ import PropTypes from 'prop-types'
 
 import Icon from '../components/icon'
 
+/**
+ * Pagination
+ */
 class Pagination extends Component {
+  /**
+   * Create pagination
+   *
+   * @param currentPage
+   * @param totalPages
+   * @param slug
+   *
+   * @returns list: array of components
+   */
+  createPagination(currentPage, totalPages, slug) {
+    let list = [] // Empty array
+    const maxPages = totalPages < 5 ? totalPages : 5 // Calculate maximum number of pages
+    const pageRange = Math.floor(maxPages / 2) // Set range of page numbers
+
+    for (let i = 1; i < maxPages + 1; i++) {
+      let pageNumber
+
+      if (
+        currentPage <= maxPages &&
+        currentPage <= pageRange &&
+        currentPage <= totalPages - pageRange
+      ) {
+        pageNumber = i
+      } else if (currentPage <= totalPages - pageRange) {
+        pageNumber = currentPage - pageRange + i - 1
+      } else if (
+        currentPage >= pageRange &&
+        currentPage >= totalPages - pageRange
+      ) {
+        pageNumber = totalPages - maxPages + i
+      }
+
+      list.push(
+        <li className="pagination__page-number">
+          <Link
+            to={`/${slug}/${pageNumber}`}
+            className={`pagination__page-link ${
+              currentPage === pageNumber ? `active` : ``
+            }`}
+            key={pageNumber}
+          >
+            {pageNumber}
+          </Link>
+        </li>
+      )
+    }
+
+    return list
+  }
+
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var currentPage
+     * @var totalPages
+     * @var pageNumbers: boolean, if show page numbers
+     * @var prevPage
+     * @var nextPage
+     * @var slug
+     */
     const {
       currentPage,
       totalPages,
@@ -53,47 +119,6 @@ class Pagination extends Component {
       </div>
     )
   }
-}
-
-function createPagination(currentPage, totalPages, slug) {
-  let list = []
-  const maxPages = totalPages < 5 ? totalPages : 5
-  const pageRange = Math.floor(maxPages / 2)
-
-  for (let i = 1; i < maxPages + 1; i++) {
-    let pageNumber
-
-    if (
-      currentPage <= maxPages &&
-      currentPage <= pageRange &&
-      currentPage <= totalPages - pageRange
-    ) {
-      pageNumber = i
-    } else if (currentPage <= totalPages - pageRange) {
-      pageNumber = currentPage - pageRange + i - 1
-    } else if (
-      currentPage >= pageRange &&
-      currentPage >= totalPages - pageRange
-    ) {
-      pageNumber = totalPages - maxPages + i
-    }
-
-    list.push(
-      <li className="pagination__page-number">
-        <Link
-          to={`/${slug}/${pageNumber}`}
-          className={`pagination__page-link ${
-            currentPage === pageNumber ? `active` : ``
-          }`}
-          key={pageNumber}
-        >
-          {pageNumber}
-        </Link>
-      </li>
-    )
-  }
-
-  return list
 }
 
 Pagination.propTypes = {

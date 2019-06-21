@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 
-// const files = require.context("!svg-sprite!./svgs", false, /.*\.svg$/)
-// files.keys().forEach(files)
+const spriteLocation = '/svg-sprite.svg' // Spritesheet location
 
-const spriteLocation = '/svg-sprite.svg'
-
+/**
+ * Icon component
+ */
 class Icon extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var type: what icon to use
+     * @var className: class for element
+     */
     const { type, className } = this.props
 
     return (

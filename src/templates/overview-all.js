@@ -5,7 +5,15 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import OverviewTemplate from '../templates/overview-template'
 
+/**
+ * Overview template for all posts
+ */
 class Overview extends React.Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
     return <OverviewTemplate {...this.props} />
   }

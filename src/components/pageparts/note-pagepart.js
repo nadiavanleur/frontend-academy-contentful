@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Note Pagepart
+ */
 class NotePagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var text: object, text to be displayed
+     */
     const { text } = this.props
 
     return (

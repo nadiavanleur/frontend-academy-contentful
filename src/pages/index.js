@@ -8,8 +8,24 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Filter from '../components/filter'
 
+/**
+ * Root Index
+ */
 class RootIndex extends React.Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var siteUrl
+     * @var title
+     * @var image
+     * @var button1
+     * @var button2
+     * @var button3
+     */
     const { siteUrl } = this.props.data.site.siteMetadata
     const { title, image, button1, button2, button3 } = this.props.data.page
 

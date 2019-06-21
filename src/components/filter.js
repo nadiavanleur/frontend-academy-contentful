@@ -4,8 +4,21 @@ import React, { Component } from 'react'
 
 import Navigation from '../components/navigation.js'
 
+/**
+ * Filter
+ */
 class Filter extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var button1: object, first filter button
+     * @var button2: object, second filter button
+     * @var button3: object, third filter button
+     */
     const { button1, button2, button3 } = this.props.data.page
 
     return (
@@ -55,6 +68,9 @@ class Filter extends Component {
   }
 }
 
+/**
+ * Use static query to get filter data
+ */
 export default props => (
   <StaticQuery
     query={filterQuery}
@@ -62,6 +78,9 @@ export default props => (
   />
 )
 
+/**
+ * Filter graphql query
+ */
 export const filterQuery = graphql`
   query FilterQuery {
     page: contentfulHome {

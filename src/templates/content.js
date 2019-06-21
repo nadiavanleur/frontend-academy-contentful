@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
@@ -8,14 +7,27 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Pageparts from '../components/pageparts'
 
+/**
+ * Content Page Template
+ */
 class ContentTemplate extends Component {
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var title
+     * @var slug
+     * @var siteUrl
+     * @var content
+     */
     const { title, slug, siteUrl, content } = this.props
 
+    /**
+     * Page header
+     */
     const pageHeader = (
       <h2 className="page__title">
         {title}

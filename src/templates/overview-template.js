@@ -10,6 +10,9 @@ import PostItem from '../components/post-item'
 import Pagination from '../components/pagination'
 import Filter from '../components/filter'
 
+/**
+ * Overview template to handle tutorials
+ */
 class OverviewTemplate extends React.Component {
   static propTypes = {
     cookies: instanceOf(Cookies).isRequired,
@@ -24,8 +27,6 @@ class OverviewTemplate extends React.Component {
   componentDidMount() {
     this.renderPosts()
   }
-
-  componentWillUnmount() {}
 
   renderPosts() {
     const { edges: tutorials } = this.props.data.tutorials

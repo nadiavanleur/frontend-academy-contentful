@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import VideoPagepart from './video-pagepart'
+import VideoPagepart from './video-pagepart' // Uses VideoPagepart for general video pagepart elements
 
+/**
+ * Video File Pagepart
+ */
 class VideoFilePagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
-    const { video, title } = this.props
+    /**
+     * @var video: object
+     * @var file: video, taken from video var, video to be displayed
+     */
+    const { video } = this.props
     const { url: file } = video.file
 
     return (

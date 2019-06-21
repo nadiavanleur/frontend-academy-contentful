@@ -5,8 +5,25 @@ import PropTypes from 'prop-types'
 
 import Progress from './progress'
 
+/**
+ * Post Item
+ */
 class PostItem extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var slug
+     * @var tutorial
+     * @var progress
+     * @var elementClass
+     * @var title
+     * @var introduction
+     * @var image
+     */
     const { slug, tutorial, progress, elementClass } = this.props
     const { title, introduction, image } = tutorial
 

@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import VideoPagepart from './video-pagepart'
+import VideoPagepart from './video-pagepart' // Uses VideoPagepart for general video pagepart elements
 
+/**
+ * Video Embed Pagepart
+ */
 class VideoEmbedPagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var title: string, iframe title
+     * @var embedCode: string, used in embed link
+     * @var platform: string, used to determine embed link
+     */
     const { title, embedCode, platform } = this.props
 
     const platforms = {
       youtube: `https://www.youtube.com/embed/${embedCode}`,
       vimeo: `https://player.vimeo.com/video/${embedCode}`,
       other: `${embedCode}`,
-    }
+    } // Object of possible embed links
 
     return (
       <VideoPagepart {...this.props}>
@@ -23,8 +36,7 @@ class VideoEmbedPagepart extends Component {
           allowfullscreen
           title={title ? title : 'video'}
           className="video-pp__iframe"
-        >
-        </iframe>
+        />
       </VideoPagepart>
     )
   }

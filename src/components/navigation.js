@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PropTypes, { instanceOf } from 'prop-types'
+import { Link } from 'gatsby'
+import { instanceOf } from 'prop-types'
 import { withCookies, Cookies } from 'react-cookie'
 
+/**
+ * Navigation
+ */
 class Navigation extends Component {
+  /**
+   * @var cookies
+   */
   static propTypes = {
     cookies: instanceOf(Cookies).isRequired,
   }
 
+  /**
+   * @var this.state.tutorialPage: corresponding overview page for last tutorial
+   */
   constructor(props) {
     super(props)
 
@@ -16,6 +25,9 @@ class Navigation extends Component {
     }
   }
 
+  /**
+   * When component has mounted set tutorial page
+   */
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -24,6 +36,12 @@ class Navigation extends Component {
     }, 50)
   }
 
+  /**
+   * Get cookie value or return ''
+   *
+   * @param key
+   * @returns cookie or ''
+   */
   getCookie(key) {
     const { cookies } = this.props
 
@@ -32,7 +50,15 @@ class Navigation extends Component {
       : ''
   }
 
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var itemClassName: string, class name for navigation
+     */
     const { itemClassName } = this.props
 
     return (

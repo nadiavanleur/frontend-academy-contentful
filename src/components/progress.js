@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Progress
+ */
 class Progress extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var progress
+     * @var elementClass
+     */
     const { progress, elementClass } = this.props
 
     return (

@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 
+/**
+ * Text Pagepart
+ */
 class TextPagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var text: object, text to be displayed
+     */
     const { text } = this.props
 
     return (

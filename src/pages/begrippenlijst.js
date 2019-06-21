@@ -6,7 +6,17 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+/**
+ * Glossary
+ */
 class Glossary extends Component {
+  /**
+   * Turn array into groups
+   *
+   * @param array
+   *
+   * @returns groupedArray
+   */
   groupArray(array) {
     let prevFirstLetter = ''
     let groupedArray = []
@@ -29,13 +39,25 @@ class Glossary extends Component {
     return groupedArray
   }
 
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var data
+     * @var title
+     * @var definitions
+     * @var siteUrl
+     */
     const { data } = this.props
-
     const { title, definitions } = data.page
-
     const { siteUrl } = data.site.siteMetadata
 
+    /**
+     * Alphabetically sort defintions
+     */
     const sortedDefinitions = definitions.sort(function(a, b) {
       if (a.label < b.label) {
         return -1
@@ -46,6 +68,9 @@ class Glossary extends Component {
       return 0
     })
 
+    /**
+     * Group definition
+     */
     const groupedDefinitions = this.groupArray(sortedDefinitions)
 
     const pageHeader = <h2 className="page__title">begrippenlijst.</h2>

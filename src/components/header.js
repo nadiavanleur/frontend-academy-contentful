@@ -4,8 +4,21 @@ import React, { Component } from 'react'
 
 import Navigation from '../components/navigation.js'
 
+/**
+ * Header
+ */
 class Header extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var pageHeader
+     * @var page
+     * @var logo
+     */
     const { pageHeader, page } = this.props
     const { logo } = this.props.data
 

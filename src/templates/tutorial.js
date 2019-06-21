@@ -11,11 +11,20 @@ import Progress from '../components/progress'
 import Pagination from '../components/pagination'
 import Pageparts from '../components/pageparts'
 
+/**
+ * Tutorial template
+ */
 class TutorialTemplate extends React.Component {
+  /**
+   * Get cookies from props
+   */
   static propTypes = {
     cookies: instanceOf(Cookies).isRequired,
   }
 
+  /**
+   * Set state
+   */
   constructor(props) {
     super(props)
 
@@ -27,6 +36,9 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * After component mounts
+   */
   componentDidMount() {
     this.setState({
       progress: this.getCookie(`tutorial_progress-${this.state.id}`),
@@ -46,12 +58,18 @@ class TutorialTemplate extends React.Component {
     this.addProgressTracker()
   }
 
+  /**
+   * Before components unmounts
+   */
   componentWillUnmount() {
     this.setCookie(`tutorial_progress-${this.state.id}`, this.state.progress)
     this.setCookie(`last_heading-${this.state.id}`, this.state.lastHeading)
     this.removeProgressTracker()
   }
 
+  /**
+   * Add progress event listener
+   */
   addProgressTracker() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.setProgress)
@@ -59,6 +77,9 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * Remoce progress event listener
+   */
   removeProgressTracker() {
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.setProgress)
@@ -66,6 +87,9 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * Set progress
+   */
   setProgress = () => {
     const value = this.getCurrentProgress()
 
@@ -74,6 +98,9 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * set last heading
+   */
   setLastHeading = () => {
     const windowHeight = window.innerHeight
     const middleWindow = windowHeight / 2
@@ -106,6 +133,9 @@ class TutorialTemplate extends React.Component {
     })
   }
 
+  /**
+   * Get current progress
+   */
   getCurrentProgress() {
     const windowHeight = window.innerHeight
     const documentHeight = document.body.offsetHeight
@@ -117,6 +147,12 @@ class TutorialTemplate extends React.Component {
     return percentage
   }
 
+  /**
+   * Set cookie
+   *
+   * @param key
+   * @param value
+   */
   setCookie(key, value) {
     if (this.getCookie(`cookies-accepted`)) {
       const { cookies } = this.props
@@ -128,6 +164,11 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * Get cookie
+   *
+   * @param key
+   */
   getCookie(key) {
     const { cookies } = this.props
 
@@ -136,6 +177,11 @@ class TutorialTemplate extends React.Component {
       : 0
   }
 
+  /**
+   * Scroll down to percentage of page
+   *
+   * @param percentage
+   */
   scrollDown(percentage) {
     setTimeout(function() {
       const windowHeight = window.innerHeight
@@ -152,6 +198,9 @@ class TutorialTemplate extends React.Component {
     }, 50)
   }
 
+  /**
+   * Scroll to last visited heading element
+   */
   scrollToLastHeading() {
     const lastHeadingElement = document.querySelectorAll(
       `[data-heading='${this.getCookie(`last_heading-${this.state.id}`)}']`
@@ -168,7 +217,24 @@ class TutorialTemplate extends React.Component {
     }
   }
 
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var data
+     * @var siteUrl
+     * @var slug
+     * @var title
+     * @var introduction
+     * @var know
+     * @var learn
+     * @var content
+     * @var next
+     * @var previous
+     */
     const { data } = this.props
     const { siteUrl } = data.site.siteMetadata
     const {

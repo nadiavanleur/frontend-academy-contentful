@@ -1,11 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Code Example Pagepart
+ */
 class CodeExamplePagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var title: string, title for iframe
+     * @var userId: string, used in embed link
+     * @var embedCode: string, used in embed link
+     * @var output: string array, used in embed link
+     * @var caption: object, used to describe code example
+     */
     const { title, userId, embedCode, output, caption } = this.props
 
-    let outputString = ''
+    /**
+     * Programming language array to string
+     */
+    let outputString = '' // Placeholder for array -> string
     output.forEach((element, key, output) => {
       outputString += `${element}${output.length - 1 - key > 0 ? `,` : ``}`
     })

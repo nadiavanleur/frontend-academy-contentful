@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Video Pagepart
+ */
 class VideoPagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var caption: object, used to describe video
+     * @var children: object/react component, (video) component shown in pagepart
+     */
     const { caption, children } = this.props
 
     return (

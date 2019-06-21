@@ -2,8 +2,22 @@ import React, { Component } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
+/**
+ * Code Pagepart
+ */
 class CodePagepart extends Component {
+  /**
+   * Render react component
+   *
+   * @returns react component
+   */
   render() {
+    /**
+     * @var code: object, code to be displayed
+     * @var text: object, used to explain code
+     * @var language: string, used to format code
+     * @var caption: object, used to describe code
+     */
     const { code, caption, text, language } = this.props
 
     return (
